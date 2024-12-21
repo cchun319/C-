@@ -1,5 +1,7 @@
 #include "memory_beast.h"
-#include <iostream>
+
+template void MemoryBeast::eat_separate<char>(const std::vector<char>&);
+
 class MemoryBeast::Impl {
     public:
         void eat(const std::vector<double>& mem){
@@ -23,6 +25,11 @@ void MemoryBeast::eat(const std::vector<double>& mem)
     pImpl->eat(memory);
 }
 
+template<class T>
+void MemoryBeast::eat_separate(const std::vector<T>& mem)
+{
+    std::cout << "template implementation in cpp\n";
+}
 
 // copy-constructor
 MemoryBeast::MemoryBeast(const MemoryBeast& other) : pImpl(new Impl(*other.pImpl))

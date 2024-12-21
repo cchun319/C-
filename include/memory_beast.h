@@ -1,6 +1,7 @@
 # pragma once
 #include <vector>
 #include <memory>
+#include <iostream>
 
 class MemoryBeast
 {
@@ -21,13 +22,13 @@ class MemoryBeast
         // contructor
         MemoryBeast();
 
-        // copy-constructor
+        // copy-constructor, lvalue binding
         MemoryBeast(const MemoryBeast&);
         
         // copy-assignment
         MemoryBeast& operator=(const MemoryBeast&);
 
-        // move-constructor
+        // move-constructor, rvalue binding
         // MemoryBeast(const MemoryBeast&&);
         MemoryBeast(MemoryBeast&&);
         
@@ -36,6 +37,16 @@ class MemoryBeast
     
         virtual ~MemoryBeast();
         void eat(const std::vector<double>&);
+
+        template<class T>
+        void eat(const std::vector<T>& mem)
+        {
+            // Q: can this moved to cpp
+            std::cout << "template not implemented\n";
+        }
+
+        template<class T>
+        void eat_separate(const std::vector<T>&);
 
         void print();
 
