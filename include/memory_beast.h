@@ -50,7 +50,23 @@ class MemoryBeast
 
         void print();
 
+        void setName(const std::string& name)
+        {
+            name_ = name;
+        }
+
+        std::string Name() const
+        {
+            return name_;
+        }
+
+        void printName()
+        {
+            std::cout << "I am " << name_ << '\n';
+        }
+
     private:
+        std::string name_;
         class Impl;
         std::unique_ptr<Impl> pImpl;
         std::vector<double> memory;

@@ -36,6 +36,10 @@ add_executable(Main src/main.cpp)
 target_include_directories(Main PRIVATE include/)
 target_link_libraries(Main MemoryBeast)
 
+add_executable(Smart src/smart_ptr_example.cpp)
+target_include_directories(Smart PRIVATE include/)
+target_link_libraries(Smart MemoryBeast)
+
 # Make sure you link your targets with this command. It can also link libraries and
 # even flags, so linking a target that does not exist will not give a configure-time error.
 # target_link_libraries(MyExample PRIVATE MyLibExample)
