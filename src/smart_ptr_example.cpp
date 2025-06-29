@@ -78,5 +78,6 @@ int main()
     else{
         std::cout << "count of ref to "  << common_beast->Name() << " is " << common_beast.use_count() << '\n';
     }
+    // weak ptr https://stackoverflow.com/questions/22185896/what-is-the-cyclic-dependency-issue-with-shared-ptr
     return 0;
 }
